@@ -1,5 +1,6 @@
 import {useEffect, useRef, useState} from 'react';
 import './App.css';
+import SpiralAnalysis from './spiralAnalysis';
 
 function App() {
     const [mouseData, setMouseData] = useState({ x: 0, y: 0 });
@@ -11,7 +12,7 @@ function App() {
     const [canvasSide, setCanvasSide] = useState()
     const color = "#000000"
     const size = 4
-
+    let new_data = []
     function drawBackground() {
       const canvas = canvasRef.current;
       const ctx = canvas.getContext("2d");
@@ -69,6 +70,17 @@ function App() {
       
     }
 
+  const [showComponent, setShowComponent] = useState(false);
+
+  const handleButtonClick = () => {
+    setShowComponent(true);
+  };
+
+  // const createNewVals = ()=>{
+  //   for (let point of vals){
+  //     new_data.push([point[0]-canvasSide,point[1]-canvasSide])
+  //   }
+  // }
     return (
       <div>
       <div>
@@ -95,10 +107,9 @@ function App() {
         drawBackground()
       }}>Clear</button>
       
-      <button onClick = {(e)=> {
-      
-      console.log(vals)
-      }}>score</button>
+      <button onClick={handleButtonClick}>Score</button>
+      {showComponent && <SpiralAnalysis data = {vals} />}
+
       
       </div></div></div>
     );
