@@ -2,7 +2,8 @@ const SpiralAnalysis = (props) => {
 
     var total_angle = 0
     var avg_slope = 0
-    // Calculation of Average Slope and Total Angle
+    // Calculation of Average Slope and Total Angle 
+    // Come back, might be broken
     for (let a = 1; a < props.data.length;a++){
         
         const angle_diff = (Math.atan(props.data[a][1]/props.data[a][0])-Math.atan(props.data[a-1][1]/props.data[a-1][0]))
