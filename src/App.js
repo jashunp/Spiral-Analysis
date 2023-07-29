@@ -74,7 +74,7 @@ function App() {
 
   const handleButtonClick = () => {
     setShowComponent(true);
-    console.log(vals)
+    //console.log(vals)
   };
 
   // const createNewVals = ()=>{
@@ -109,7 +109,7 @@ function App() {
       }}>Clear</button>
       
       <button onClick={handleButtonClick}>Score</button>
-      {showComponent && <SpiralAnalysis data = {vals} center = {[canvasSide/2,canvasSide/2]}/>}
+      {showComponent && <SpiralAnalysis data = {vals} center = {canvasSide/2}/>}
 
       
       </div></div></div>
