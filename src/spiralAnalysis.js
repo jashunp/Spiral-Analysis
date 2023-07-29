@@ -4,10 +4,18 @@ const SpiralAnalysis = (props) => {
     var avg_slope = 0
     // Calculation of Average Slope and Total Angle 
     // Come back, might be broken
+    const cosRule = (a,b,c) => {
+        const angle = (Math.pow(c,2) - Math.pow(b,2) - Math.pow(a,2))/(-2*a*b)
+        return angle
+    }
+    const lengths = []
+    for (let j = 0; j < props.data.length; j++){
+        lengths.push(Math.sqrt(Math.pow(props.data[j][0],2) + Math.pow(props.data[j][1],2)))
+    }
     for (let a = 1; a < props.data.length;a++){
         
-        const angle_diff = (Math.atan(props.data[a][1]/props.data[a][0])-Math.atan(props.data[a-1][1]/props.data[a-1][0]))
-        //console.log(angle_diff*57.2958)
+         const angle_diff = (Math.atan(props.data[a][1]/props.data[a][0])-Math.atan(props.data[a-1][1]/props.data[a-1][0]))
+        // console.log(angle_diff*57.2958)
         const slope = (((props.data[a][1]-props.data[a-1][1])/(props.data[a][0]-props.data[a-1][0]))/angle_diff)^2
         avg_slope += slope
         total_angle += angle_diff
