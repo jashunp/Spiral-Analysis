@@ -1,6 +1,7 @@
 import {useEffect, useRef, useState} from 'react';
 import './App.css';
 import SpiralAnalysis from './spiralAnalysis';
+import 'semantic-ui-css/semantic.min.css'
 
 function App() {
     const [mouseData, setMouseData] = useState({ x: 0, y: 0 });
@@ -83,36 +84,33 @@ function App() {
   //   }
   // }
     return (
-      <div>
-      <div>
+      <div><div>
+
+
+      <span style = {{display:'flex', justifyContent: 'flex-start',alignItems: 'flex-start'}}>
       <canvas style = {{borderStyle: 'dotted'}}
       ref = {canvasRef}
       onMouseEnter = {(e) =>SetPos(e)}
       onMouseMove = {(e)=> {SetPos(e);Draw(e)}}
       onMouseUp = {(e)=> setIsDrawn(1)}
       ></canvas>
-        <div
-                className="controlpanel"
-                style={{
-                    position: "absolute",
-                    top: "0",
-                    left: "0",
-                    width: "100%", 
-                }}
-            >
-      <button onClick = {()=> {
+        
+      <button  class="ui button" style = {{marginLeft:"3px"}}onClick = {()=> {
         const ctx = canvasCTX;
         ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
         setIsDrawn(0)
         setVals([])
         drawBackground()
+        setShowComponent(false);
       }}>Clear</button>
       
-      <button onClick={handleButtonClick}>Score</button>
+      <button class="ui button" onClick={handleButtonClick}>Score</button>
       {showComponent && <SpiralAnalysis data = {vals} center = {canvasSide/2}/>}
 
       
-      </div></div></div>
+      </span>
+      
+      </div></div>
     );
     
     
