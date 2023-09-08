@@ -102,6 +102,7 @@ function App() {
         setVals([])
         drawBackground()
         setShowComponent(false);
+        // Bug fix
       }}>Clear</button>
       
       <button class="ui button" onClick={handleButtonClick}>Score</button>

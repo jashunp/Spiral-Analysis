@@ -16,6 +16,7 @@ const SpiralAnalysis = (props) => {
     
     //Calculating the lengths of each point
     const lengths = []
+    // const angle_array = [0]
     for (let j = 0; j < props.data.length; j++){
         lengths.push(Math.sqrt(Math.pow(props.data[j][0]-props.center,2) + Math.pow(props.data[j][1]-props.center,2)))
     }
@@ -27,6 +28,7 @@ const SpiralAnalysis = (props) => {
 
         let distOverAngle;
         let angle_diff = cosRule(lengths[a],lengths[a-1]);
+        // angle_array.push(angle_diff)
         distOverAngle = (lengths[a]-lengths[a-1])/angle_diff
         // console.log(angle_diff);
         total_angle += angle_diff;
